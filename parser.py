@@ -12,3 +12,4 @@ while i == i:
 		i=i+1
 	except (IndexError) as err:
 		pass
+		break
