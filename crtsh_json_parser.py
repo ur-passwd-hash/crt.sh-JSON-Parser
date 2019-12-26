@@ -1,7 +1,7 @@
 import json
 import urllib.request
 
-url_name = input("Enter the crt.sh url (don't forget to append '&output=JSON'):")
+url_name = input("Enter the crt.sh url (don't forget to append '&output=json'):")
 
 with urllib.request.urlopen(url_name) as url:
 	data = json.loads(url.read().decode())
