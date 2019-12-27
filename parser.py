@@ -1,15 +1,20 @@
 import json
+import sys
 import urllib.request
 
-url_name = input("Enter the crt.sh url (don't forget to append '&output=json'):")
+url_name = input("Enter the domain/subdomain (For best results, include wildcard '%'): ")
 
-with urllib.request.urlopen(url_name) as url:
+filename = input("File Name to Write: ")
+sys.stdout = open(filename, 'w')
+
+with urllib.request.urlopen('https://crt.sh/?q='+url_name+'&output=json') as url:
 	data = json.loads(url.read().decode())
 	i = 0
-while i == i:
-	try:
-		print(data[i]['name_value'])
-		i=i+1
-	except (IndexError) as err:
-		pass
-		break
+	while i == i:
+		try:
+			print(data[i]['name_value'],)
+			i=i+1
+		except (IndexError) as err:
+			pass
+			break
+sys.stdout.close()
